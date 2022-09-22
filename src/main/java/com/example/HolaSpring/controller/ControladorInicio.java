@@ -1,5 +1,7 @@
-package com.example.HolaSpring;
+package com.example.HolaSpring.controller;
 
+import com.example.HolaSpring.model.Persona;
+import com.example.HolaSpring.service.PersonaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +14,11 @@ import java.util.List;
 @Slf4j
 public class ControladorInicio {
     @Autowired
-    private PersonaDAO personaDAO;
+    private PersonaService personaService;
 
     @GetMapping("/")
     public String inicio(Model model) {
-        var personas= personaDAO.findAll();
+        List<Persona> personas= personaService.listarPersonas();
         log.info("Ejecutando el controlador Spring MVC");
         model.addAttribute("personas", personas);
         return "index";

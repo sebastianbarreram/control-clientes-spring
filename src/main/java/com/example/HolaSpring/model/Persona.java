@@ -1,4 +1,4 @@
-package com.example.HolaSpring;
+package com.example.HolaSpring.model;
 
 import lombok.Data;
 
